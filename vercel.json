@@ -2,17 +2,16 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "services": {
-    "python": {
-      "root": "sdk/python",
-      "framework": "fastapi",
-      "entrypoint": "main:app"
+    "web": {
+      "root": "site",
+      "framework": "nextjs"
     }
   },
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/(.*)",
       "destination": {
-        "service": "python"
+        "service": "web"
       }
     }
   ]
