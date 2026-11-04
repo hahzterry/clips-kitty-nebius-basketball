@@ -1,32 +1,18 @@
+
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "services": {
-    "app": {
-      "root": ".",
-      "framework": "fastapi"
-    },
     "python": {
       "root": "sdk/python",
-      "runtime": "python"
-    },
-    "ui": {
-      "root": "ui",
-      "framework": "vite"
-    },
-    "web": {
-      "root": "web",
-      "framework": "nextjs"
-    },
-    "whop-app": {
-      "root": "whop-app",
-      "framework": "nextjs"
+      "framework": "fastapi",
+      "entrypoint": "main:app"
     }
   },
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api/(.*)",
       "destination": {
-        "service": "app"
+        "service": "python"
       }
     }
   ]
